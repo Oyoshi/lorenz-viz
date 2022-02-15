@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn enforce-branch-name '(hotfix|feature).+' --ignore '(staging|develop|master|main)'
+yarn pretty-quick --staged
