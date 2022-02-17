@@ -1,5 +1,4 @@
 import { ScatterPlot } from "./components/scatter-plot";
-import "./App.css";
 
 function randomValues(num: any, mul: any) {
   const arr = [];
@@ -11,7 +10,7 @@ function randomValues(num: any, mul: any) {
   return { index, arr };
 }
 
-function App() {
+export const App = () => {
   const traces: any = Array(3)
     .fill(0)
     .map((_, i) => {
@@ -26,6 +25,4 @@ function App() {
     });
 
   return <ScatterPlot trace={traces} />;
-}
-
-export default App;
+};

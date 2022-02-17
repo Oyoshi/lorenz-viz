@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import { GlobalTheme } from "./theme/GlobalTheme";
+import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalTheme />
     <App />
   </React.StrictMode>,
   document.getElementById("root")
