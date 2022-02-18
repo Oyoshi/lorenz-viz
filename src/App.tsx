@@ -1,28 +1,29 @@
-import { ScatterPlot } from "./components/scatter-plot";
+import { useState } from "react";
+import { InputsForm } from "components/inputs-form";
+import { ScatterPlot } from "components/scatter-plot";
 
-function randomValues(num: any, mul: any) {
-  const arr = [];
-  const index = [];
-  for (let i = 0; i < num; i++) {
-    arr.push(Math.random() * mul);
-    index.push(i);
-  }
-  return { index, arr };
-}
+type InputChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>;
+type FormSubmitEventHandler = React.FormEventHandler<HTMLFormElement>;
+type InputsValues = Record<string, number>;
 
 export const App = () => {
-  const traces: any = Array(3)
-    .fill(0)
-    .map((_, i) => {
-      const { index, arr } = randomValues(20, 3);
-      return {
-        x: Array(20).fill(i),
-        y: index,
-        z: arr,
-        type: "scatter3d",
-        mode: "lines",
-      };
-    });
+  const [coefficients, setCoefficients] = useState<InputsValues>({});
 
-  return <ScatterPlot trace={traces} />;
+  const handleInputChange: InputChangeEventHandler = (e) => {
+    const target = e.currentTarget;
+    setCoefficients({ ...coefficients, [target.name]: Number(target.value) });
+  };
+
+  const handleSubmit: FormSubmitEventHandler = (e) => {
+    e.preventDefault();
+    // TODO - as validation (all fields are required) and pass it to the calculation service
+    console.log(coefficients);
+  };
+
+  return (
+    <>
+      <InputsForm onChange={handleInputChange} onSubmit={handleSubmit} />
+      <ScatterPlot trace={[]} />
+    </>
+  );
 };

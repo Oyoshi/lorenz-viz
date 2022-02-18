@@ -1,0 +1,1 @@
+export { InputsForm } from "./InputsForm";
