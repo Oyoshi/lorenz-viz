@@ -1,1 +1,1 @@
-export const INPUTS_NAMES = ["coeff_sigma", "coeff_b", "coeff_r"];
+export const INPUTS_NAMES = ["sigma", "rho", "beta"];

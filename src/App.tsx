@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { InputsForm } from "components/inputs-form";
 import { ScatterPlot } from "components/scatter-plot";
+import { solveRK4 } from "ode-solver/rk4";
 
 type InputChangeEventHandler = React.ChangeEventHandler<HTMLInputElement>;
 type FormSubmitEventHandler = React.FormEventHandler<HTMLFormElement>;
@@ -8,6 +9,7 @@ type InputsValues = Record<string, number>;
 
 export const App = () => {
   const [coefficients, setCoefficients] = useState<InputsValues>({});
+  const [traces, setTraces] = useState({});
 
   const handleInputChange: InputChangeEventHandler = (e) => {
     const target = e.currentTarget;
@@ -16,14 +18,29 @@ export const App = () => {
 
   const handleSubmit: FormSubmitEventHandler = (e) => {
     e.preventDefault();
-    // TODO - as validation (all fields are required) and pass it to the calculation service
-    console.log(coefficients);
+    const x_fun = (x: number, y: number) => coefficients["sigma"] * (y - x);
+    const y_fun = (x: number, y: number, z: number) =>
+      x * (coefficients["rho"] - z) - y;
+    const z_fun = (x: number, y: number, z: number) =>
+      x * y - coefficients["beta"] * z;
+    setTraces(solveRK4(x_fun, y_fun, z_fun));
   };
+
+  console.log(traces);
 
   return (
     <>
       <InputsForm onChange={handleInputChange} onSubmit={handleSubmit} />
-      <ScatterPlot trace={[]} />
+      <ScatterPlot
+        trace={[
+          {
+            ...traces,
+            type: "scatter3d",
+            mode: "lines",
+            line: { color: "#09b3bf" },
+          },
+        ]}
+      />
     </>
   );
 };
