@@ -1,5 +1,6 @@
 import { IInputsFormsProps } from "./InputsForm.interface";
-import { INPUTS_NAMES } from "./InputsForm.const";
+import { INPUTS } from "./InputsForm.const";
+import Input from "./Input";
 
 // TODO - remove inline stylings
 export const InputsForm: React.FC<IInputsFormsProps> = ({
@@ -7,20 +8,17 @@ export const InputsForm: React.FC<IInputsFormsProps> = ({
   onSubmit,
 }) => (
   <form onSubmit={onSubmit} style={{ margin: "30px" }}>
-    {INPUTS_NAMES.map((inpName: string) => (
-      <>
-        <input
-          key={inpName}
-          id={inpName}
-          name={inpName}
-          type="number"
-          step="any"
-          style={{ margin: "30px" }}
-          onChange={onChange}
-          required
-        />
-        <label htmlFor={inpName}>{inpName}</label>
-      </>
+    {INPUTS.map((inp: { name: string; label: string }) => (
+      <Input
+        key={inp.name}
+        id={inp.name}
+        name={inp.name}
+        type="number"
+        step="any"
+        onChange={onChange}
+        label={inp.label}
+        required
+      />
     ))}
     <button type="submit">Visualize</button>
   </form>

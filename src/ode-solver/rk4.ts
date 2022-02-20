@@ -1,5 +1,6 @@
 type ODE = (...params: number[]) => number;
 
+// TODO - add beter comment
 // Runge-Kutta algorithm specialized to numerically solve Lorenz ODE system
 // Intead of implementing generic algorithm (like Matlab) and complicate it I stayed with specific and imperative approach
 export const solveRK4 = (

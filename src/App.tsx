@@ -26,8 +26,6 @@ export const App = () => {
     setTraces(solveRK4(x_fun, y_fun, z_fun));
   };
 
-  console.log(traces);
-
   return (
     <>
       <InputsForm onChange={handleInputChange} onSubmit={handleSubmit} />
@@ -37,7 +35,7 @@ export const App = () => {
             ...traces,
             type: "scatter3d",
             mode: "lines",
-            line: { color: "#09b3bf" },
+            line: { color: "#6047f4" },
           },
         ]}
       />
