@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import { GlobalTheme } from "styles/GlobalTheme";
+import { theme } from "styles/theme";
 import { InputsForm } from "components/inputs-form";
 import { ScatterPlot } from "components/scatter-plot";
 import { solveRK4 } from "ode-solver/rk4";
@@ -27,7 +30,8 @@ export const App = () => {
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalTheme />
       <InputsForm onChange={handleInputChange} onSubmit={handleSubmit} />
       <ScatterPlot
         trace={[
@@ -39,6 +43,6 @@ export const App = () => {
           },
         ]}
       />
-    </>
+    </ThemeProvider>
   );
 };

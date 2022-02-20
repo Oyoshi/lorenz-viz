@@ -1,52 +1,53 @@
-import styled from "styled-components";
-
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  id: string;
-  label: string;
-}
+import styled, { css, ThemeProps, Theme } from "styled-components";
+import { IInputProps } from "./Input.interface";
 
 const InputGroup = styled.div`
   position: relative;
 `;
 
-const InputLabel = styled.label`
-  color: #8d8d8d;
-  position: absolute;
-  top: 27px;
-  left: 55px;
-  background: #ffffff;
-  transition: 300ms;
-  transform: translate(-50%, -50%);
-`;
+const InputLabel = styled.label(
+  ({ theme }: ThemeProps<Theme>) => css`
+    color: ${theme.colors.primary.label};
+    position: absolute;
+    top: 27px;
+    left: 55px;
+    background: ${theme.colors.primary.background};
+    transition: ${theme.transition}ms;
+    transform: translate(-50%, -50%);
+  `
+);
 
-const InputField = styled.input`
-  outline: none;
-  padding: 16px 22px;
-  border: 1px solid #dadce0;
-  font-size: 18px;
-  border-radius: 5px;
+const InputField = styled.input(
+  ({ theme }: ThemeProps<Theme>) => css`
+    outline: none;
+    padding: 12px 16px;
+    border: 1px solid ${theme.colors.primary.input};
+    font-size: ${theme.font.sizes.regular}px;
+    font-weight: ${theme.font.weights.regular};
+    border-radius: ${theme.border.radius}px;
 
-  &:focus {
-    border: 2px solid #6047f4;
-  }
+    &:focus {
+      border: 2px solid ${theme.colors.effect.input};
+    }
 
-  &:valid + ${InputLabel} {
-    top: -1px;
-    padding: 0 3px;
-    font-size: 14px;
-    color: #8d8d8d;
-  }
+    &:valid + ${InputLabel} {
+      top: -1px;
+      padding: 0 3px;
+      font-size: ${theme.font.sizes.regular}px;
+      color: ${theme.colors.effect.label};
+    }
 
-  &:focus + ${InputLabel} {
-    top: -1px;
-    padding: 0 3px;
-    font-size: 14px;
-    color: royalblue;
-    transition: 300ms;
-  }
-`;
+    &:focus + ${InputLabel} {
+      top: -1px;
+      padding: 0 3px;
+      font-size: ${theme.font.sizes.regular}px;
+      color: ${theme.colors.effect.input};
+      transition: ${theme.transition}ms;
+    }
+  `
+);
 
-export const Input: React.FC<InputProps> = ({ id, label, ...rest }) => {
+export const Input: React.FC<IInputProps> = ({ id, label, ...rest }) => {
   return (
     <InputGroup>
       <InputField id={id} {...rest} />

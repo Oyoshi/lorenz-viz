@@ -1,17 +1,21 @@
-import styled from "styled-components";
+import styled, { css, ThemeProps, Theme } from "styled-components";
 
-export const Button = styled.button`
-  padding: 12px 22px;
-  border-radius: 6px;
-  font-size: 16px;
-  outline-style: none;
-  border-style: none;
-  transition: 300ms;
-  background-color: #0a11eb;
-  color: #ffffff;
-  text-transform: uppercase;
+export const Button = styled.button(
+  ({ theme }: ThemeProps<Theme>) => css`
+    padding: 12px 22px;
+    border-radius: ${theme.border.radius}px;
+    outline-style: none;
+    border-style: none;
+    font-size: ${theme.font.sizes.regular}px;
+    font-weight: ${theme.font.weights.bold};
+    text-transform: uppercase;
+    transition: ${theme.transition}ms;
+    background-color: ${theme.colors.accent.background};
+    color: ${theme.colors.accent.text};
 
-  :hover {
-    background-color: #070cab;
-  }
-`;
+    :hover {
+      background-color: ${theme.colors.effect.background};
+      color: ${theme.colors.effect.text};
+    }
+  `
+);
