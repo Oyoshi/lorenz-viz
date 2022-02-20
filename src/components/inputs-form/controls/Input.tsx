@@ -46,7 +46,7 @@ const InputField = styled.input`
   }
 `;
 
-const Input: React.FC<InputProps> = ({ id, label, ...rest }) => {
+export const Input: React.FC<InputProps> = ({ id, label, ...rest }) => {
   return (
     <InputGroup>
       <InputField id={id} {...rest} />
@@ -54,5 +54,3 @@ const Input: React.FC<InputProps> = ({ id, label, ...rest }) => {
     </InputGroup>
   );
 };
-
-export default Input;

@@ -35,7 +35,7 @@ export const App = () => {
             ...traces,
             type: "scatter3d",
             mode: "lines",
-            line: { color: "#6047f4" },
+            line: { color: "#0a11eb" },
           },
         ]}
       />
