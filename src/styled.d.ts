@@ -3,6 +3,9 @@ import "styled-components";
 declare module "styled-components" {
   export interface Theme extends DefaultTheme {
     transition: number;
+    mediaQueries: {
+      large: number;
+    };
     border: {
       radius: number;
     };

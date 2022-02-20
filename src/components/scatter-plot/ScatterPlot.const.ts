@@ -4,7 +4,6 @@ export const customLayout: Partial<ILayout> = {
   width: 900,
   height: 800,
   showlegend: false,
-  title: "Lorenz System Visualization",
 };
 
 export const customConfig: Partial<IConfig> = {

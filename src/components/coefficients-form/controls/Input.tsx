@@ -3,6 +3,7 @@ import { IInputProps } from "./Input.interface";
 
 const InputGroup = styled.div`
   position: relative;
+  margin: 12px 0;
 `;
 
 const InputLabel = styled.label(
@@ -25,9 +26,10 @@ const InputField = styled.input(
     font-size: ${theme.font.sizes.regular}px;
     font-weight: ${theme.font.weights.regular};
     border-radius: ${theme.border.radius}px;
+    transition: ${theme.transition}ms;
 
     &:focus {
-      border: 2px solid ${theme.colors.effect.input};
+      border: 1px solid ${theme.colors.effect.input};
     }
 
     &:valid + ${InputLabel} {

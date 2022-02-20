@@ -2,6 +2,9 @@ import { Theme } from "styled-components";
 
 export const theme: Theme = {
   transition: 300,
+  mediaQueries: {
+    large: 992,
+  },
   border: {
     radius: 6,
   },
@@ -21,18 +24,18 @@ export const theme: Theme = {
   },
   colors: {
     primary: {
-      background: "#fefdff",
+      background: "#ffffff",
       text: "#20212c",
       input: "#dadce0",
       label: "#8d8d8d",
     },
     accent: {
       background: "#0a11eb",
-      text: "#fefdff",
+      text: "#ffffff",
     },
     effect: {
       background: "#070cab",
-      text: "#fefdff",
+      text: "#ffffff",
       input: "#0a11eb",
       label: "#8d8d8d",
     },
