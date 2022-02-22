@@ -23,7 +23,8 @@ const InputSection = styled.section(
   ({ theme }: ThemeProps<Theme>) => css`
     float: left;
     width: 700px;
-    @media (max-width: ${theme.mediaQueries.large}) {
+    @media only screen and (max-width: ${theme.mediaQueries.large}px) {
+      float: none;
       display: block;
       width: 95vw;
     }
@@ -40,8 +41,8 @@ const InfoWrapper = styled.div`
 const ChartSection = styled.section(
   ({ theme }: ThemeProps<Theme>) => css`
     float: left;
-    @media (max-width: ${theme.mediaQueries.large}) {
-      display: block;
+    @@media only screen and (max-width: ${theme.mediaQueries.large}px) {
+      float: none;
     }
   `
 );
@@ -103,7 +104,7 @@ export const App = () => {
               can see is called Lorenz Atractor. Runge-Kutta numerical method is
               being to calculate the solution for the Lorenz System. If you're
               interested on the subject you can read more about it{" "}
-              <Anchor href="https://www.cfm.brown.edu/people/dobrush/am34/Mathematica/ch3/lorenz.html)">
+              <Anchor href="https://www.cfm.brown.edu/people/dobrush/am34/Mathematica/ch3/lorenz.html">
                 here
               </Anchor>{" "}
               and{" "}
