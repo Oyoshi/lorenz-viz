@@ -4,7 +4,7 @@
 
 ### Demo
 
-Demo is available [here](https://lorenz-viz.web.app/). *CI/CD* has been configured to automatically deploy any changes using [firebase](https://firebase.google.com/) CLI.
+Demo is avlable [here](https://lorenz-viz.web.app/). _CI/CD_ has been configured to automatically deploy any changes using [firebase](https://firebase.google.com/) CLI.
 
 ### Technology Stack :hammer_and_wrench:
 
