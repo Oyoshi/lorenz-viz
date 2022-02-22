@@ -25,7 +25,7 @@ const InputSection = styled.section(
     width: 700px;
     @media (max-width: ${theme.mediaQueries.large}) {
       display: block;
-      width: 90vw;
+      width: 95vw;
     }
   `
 );
