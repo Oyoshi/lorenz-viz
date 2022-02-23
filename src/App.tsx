@@ -102,8 +102,8 @@ export const App = () => {
               />{" "}
               parameters values the system behaves in a chaotic way. What you
               can see is called Lorenz Atractor. Runge-Kutta numerical method is
-              being to calculate the solution for the Lorenz System. If you're
-              interested on the subject you can read more about it{" "}
+              being used to calculate the solution for the Lorenz System. If
+              you're interested on the subject you can read more about it{" "}
               <Anchor href="https://www.cfm.brown.edu/people/dobrush/am34/Mathematica/ch3/lorenz.html">
                 here
               </Anchor>{" "}
